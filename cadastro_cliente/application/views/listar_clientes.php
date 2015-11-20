@@ -68,13 +68,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
 <div id="container">
-	<h1>Cadastro simples de Clientes</h1>
+	<h1>Lista de Clientes</h1>
 
 	<div id="body">
-		<ul>
-			<li><a href="<? echo base_url('index.php/welcome/formulario_cadastro'); ?>"> Novo clientes</a></li>
-			<li><a href="<? echo base_url('index.php/welcome/listar_clientes'); ?>">Listar cliente</a></li>
-		</ul>
+		
+		<table>
+				<tr>
+					<th>Nome </th>
+					<th>Email</th>
+				</tr>
+				<? foreach ($resultado -> result() as $linha): ?>
+				<tr>
+					<td><? echo $linha->$nome ?></td>
+					<td><? echo $linha->$email ?></td>
+				</tr>			
+			<? endforeach ?>
+		</table>
+		
 	</div>
 
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
